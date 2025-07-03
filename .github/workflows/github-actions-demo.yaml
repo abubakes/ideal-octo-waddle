@@ -1,4 +1,5 @@
 name: Abubakar's github actions testing
+run-name: linter
 on: 
   push: 
     branches: 
