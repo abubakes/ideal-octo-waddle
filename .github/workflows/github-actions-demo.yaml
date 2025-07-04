@@ -1,6 +1,9 @@
 name: Abubakar's workflow
 
 on: 
+  push: 
+    branches: 
+      - main
   workflow_dispatch:
 
 jobs: 
