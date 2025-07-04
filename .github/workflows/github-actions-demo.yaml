@@ -17,6 +17,7 @@ jobs:
       - run: echo "Hello World!"
     
   some_other_job_id: # <-- Some other job_id
+    needs: some_job_id
     name: Some other job # <-- Name of the other job which is displayed in the GitHub UI
     runs-on: ubuntu-latest
 
