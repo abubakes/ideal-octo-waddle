@@ -7,28 +7,21 @@ on:
   workflow_dispatch:
 
 jobs: 
-  some_job_id: # <-- Some job_id
-    name: Some job # <-- Name of the job which is displayed in the GitHub UI
+  my_job_id: 
+    name: Terraform Job
     runs-on: ubuntu-latest
 
     steps: 
       - uses: actions/checkout@v4
-        name: Checkout Repository # <-- Name of the step which is displayed in the GitHub UI
-      - run: echo "Hello World!"
-    
-  some_other_job_id: # <-- Some other job_id
-    needs: some_job_id
-    name: Some other job # <-- Name of the other job which is displayed in the GitHub UI
-    runs-on: ubuntu-latest
-
-    steps: 
-      - run: echo "Goodbye World!"
-  
-  another_job_id: 
-    needs: some_other_job_id
-    runs-on: ubuntu-latest
-    steps: 
-      - run: echo "Hello World"
+      - uses: hashicorp/setup-terraform@v3
+      - uses: aws-actions/configure-aws-credentials@v4
+        with: 
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+      - run: terraform fmt
+      - run: terraform validate
+      - run: terraform plan
 
 
     
