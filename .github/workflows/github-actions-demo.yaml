@@ -27,8 +27,6 @@ jobs:
   another_job_id: 
     needs: some_other_job_id
     runs-on: ubuntu-latest
-    steps: 
-      - run: echo "Hello World"
 
 
     
