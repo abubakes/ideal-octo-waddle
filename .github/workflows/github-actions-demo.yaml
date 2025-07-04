@@ -8,11 +8,18 @@ on:
 
 jobs: 
   some_job_id: # <-- Some job_id
-    name: This is a job # <-- Name of the job which is displayed in the GitHub UI
+    name: Some job # <-- Name of the job which is displayed in the GitHub UI
     runs-on: ubuntu-latest
 
     steps: 
       - uses: actions/checkout@v4
       - run: echo "Hello World!"
+    
+  some_other_job_id: # <-- Some other job_id
+    name: Some other job # <-- Name of the other job which is displayed in the GitHub UI
+    runs-on: ubuntu-latest
+
+    steps: 
+      - run: echo "Goodbye World!"
 
     
