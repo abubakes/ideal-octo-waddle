@@ -1,42 +1,15 @@
+name: Abubakar's workflow
+
 on: 
-  push: 
-    branches: 
-      - main
+  workflow_dispatch:
 
 jobs: 
-  my_first_job: # <-- job_id
-    name: My first job # <-- displayed in the GitHub UI
+  some_job_id: # <-- Some job_id
+    name: This is a job # <-- Name of the job which is displayed in the GitHub UI
     runs-on: ubuntu-latest
 
     steps: 
-      - name: Checkout Repository # <-- displayed in the GitHub UI
-        uses: actions/checkout@v3
-      
-      - name: Set up Terraform # <-- displayed in the GitHub UI
-        uses: hashicorp/setup-terraform@v3
+      - uses: actions/checkout@v4
+      - run: echo "Hello World!"
 
-      - name: Configure AWS credentials # <-- displayed in the GitHub UI
-        uses: aws-actions/configure-aws-credentials@v4
-        with: 
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1
-
-      - name: Terraform init # <-- displayed in the GitHub UI
-        run: terraform init
-
-      - name: Terraform plan
-        run: terraform plan
-
-      - name: Terraform apply
-        run: terraform apply -auto-approve
-
-      - name: Terraform destroy
-        run: terraform destroy -auto-approve
-
-        
-        
-      
-
-      
-
+    
