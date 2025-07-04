@@ -13,6 +13,7 @@ jobs:
 
     steps: 
       - uses: actions/checkout@v4
+        name: Checkout Repository # <-- Name of the step which is displayed in the GitHub UI
       - run: echo "Hello World!"
     
   some_other_job_id: # <-- Some other job_id
