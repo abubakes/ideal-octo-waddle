@@ -13,7 +13,7 @@ data "aws_ami" "al2023" {
 
 resource "aws_instance" "my_ec2" {
     ami = data.aws_ami.al2023.id
-    instance_type = "t2.micro"
+    instance_type = "invalid_type"
     tags = {
         Name = "Abubakar's EC2 Instance"
     }
